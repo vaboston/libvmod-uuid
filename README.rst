@@ -7,8 +7,8 @@ Varnish UUID Module
 ----------------------
 
 :Author: Mitchell Broome, Geoff Simmons
-:Date: 2017-04-27
-:Version: 1.2
+:Date: 2017-10-30
+:Version: trunk
 :Manual section: 3
 
 SYNOPSIS
@@ -142,8 +142,10 @@ you install the rpms with the following command::
 
    yum install -y uuid uuid-devel
 
-This version of the VMOD requires Varnish since version 5.0.0, and has
-been tested against versions through 5.1.2.
+This version of the VMOD requires the Varnish master branch after
+version 5.2.0, and is not compatible with any currently released
+versions of Varnish. See the project source code repository for
+versions compatible with a Varnish release.
 
 INSTALLATION
 ============
@@ -212,6 +214,8 @@ so forth.
 
 HISTORY
 =======
+
+* Version 1.3: compatible with Varnish 5.0.0 through 5.2.
 
 * Verison 1.2: compatible with Varnish since 5.0.0
 
