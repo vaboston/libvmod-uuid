@@ -215,6 +215,8 @@ so forth.
 HISTORY
 =======
 
+* Version 1.4: add RPM packaging
+
 * Version 1.3: compatible with Varnish 5.0.0 through 5.2.
 
 * Verison 1.2: compatible with Varnish since 5.0.0
