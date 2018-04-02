@@ -1,6 +1,6 @@
 AC_PREREQ(2.68)
 AC_COPYRIGHT([Copyright (c) 2013 Sharecare, Inc.])
-AC_INIT([libvmod-uuid], [trunk], [], [vmod-uuid])
+AC_INIT([libvmod-uuid], [1.5], [], [vmod-uuid])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR(src/vmod_uuid.vcc)
 AC_CONFIG_AUX_DIR([build-aux])
@@ -33,7 +33,7 @@ AC_ARG_WITH([rst2man],
 
 m4_ifndef([VARNISH_PREREQ], AC_MSG_ERROR([Need varnish.m4 -- see INSTALL.rst]))
 
-VARNISH_PREREQ([5.0.0 5.3])
+VARNISH_PREREQ([6.0.0])
 VARNISH_VMODS([uuid])
 
 VMOD_TESTS="$(cd $srcdir/src && echo tests/*.vtc)"
