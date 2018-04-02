@@ -9,11 +9,11 @@ Group: System Environment/Daemons
 URL: https://github.com/otto-de/libvmod-uuid
 Source0: %{name}-%{version}.tar.gz
 
-# varnish from varnish5 at packagecloud
-Requires: varnish >= 5.2.0
+# varnish from varnish60 at packagecloud
+Requires: varnish >= 6.0.0
 Requires: uuid
 
-BuildRequires: varnish-devel >= 5.2.0
+BuildRequires: varnish-devel >= 6.0.0
 BuildRequires: uuid-devel
 BuildRequires: pkgconfig
 BuildRequires: make
@@ -43,11 +43,11 @@ various versions.
 
 %configure
 
-make
+make %{?_smp_mflags}
 
 %check
 
-make check
+make %{?_smp_mflags} check
 
 %install
 
@@ -73,3 +73,8 @@ rm -rf %{buildroot}
 /sbin/ldconfig
 
 %changelog
+* Mon Apr 02 2018 Geoff Simmons <geoff[AT]uplex.de> - 1.5-1
+- Compatible with VRT 7.0 and Varnish 6.0.0.
+
+* Wed Dec 20 2017 Geoff Simmons <geoff[AT]uplex.de> - 1.4-1
+- Compatible with VRT 6.1 and Varnish 5.2.1.

@@ -7,7 +7,7 @@ Varnish UUID Module
 ----------------------
 
 :Author: Mitchell Broome, Geoff Simmons
-:Date: 2017-10-30
+:Date: 2018-04-02
 :Version: trunk
 :Manual section: 3
 
@@ -137,10 +137,9 @@ Libvmod-uuid requires the OSSP uuid library to generate uuids.  It is
 available at http://www.ossp.org/pkg/lib/uuid/ or possibly as a
 prepackaged library (usually named uuid) from your linux distribution.
 
-This version of the VMOD requires the Varnish master branch after
-version 5.2.0, and is not compatible with any currently released
-versions of Varnish. See the project source code repository for
-versions compatible with a Varnish release.
+This version of the VMOD requires Varnish since version 6.0.0 or the
+master branch. See the project source code repository for versions
+compatible with a Varnish release.
 
 INSTALLATION
 ============
@@ -149,6 +148,8 @@ See `INSTALL.rst <INSTALL.rst>`_ in the source repository.
 
 HISTORY
 =======
+
+* Version 1.5: RPM compatible with Varnish 6.0.0
 
 * Version 1.4: add RPM packaging
 
