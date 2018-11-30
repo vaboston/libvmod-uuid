@@ -4,33 +4,41 @@ INSTALLATION
 RPMs
 ~~~~
 
-Binary, debuginfo and source RPMs for VMOD re are available at
-packagecloud:
+Binary, debuginfo and source RPMs for VMOD re are available at:
 
-	https://packagecloud.io/uplex/varnish
+	https://pkg.uplex.de/
 
 The packages are built for Enterprise Linux 7 (el7), and hence will
 run on compatible distros (such as RHEL7, Fedora, CentOS 7 and Amazon
 Linux).
 
-To set up your YUM repository for the RPMs, follow these instructions:
+To add the repo to your YUM configuration::
 
-	https://packagecloud.io/uplex/varnish/install#manual-rpm
+  yum-config-manager --add-repo https://pkg.uplex.de/rpm/7/uplex-varnish/x86_64/
 
-You will also need these additional repositories:
+The RPM for the VMOD requires a Varnish installation from the official
+packages:
 
-* EPEL7
+	https://packagecloud.io/varnishcache
 
-  * ``yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm``
+You can then install the VMOD with::
 
-* Official Varnish packages from packagecloud (since version 5.2.0)
+  yum install --nogpgcheck vmod-selector
 
-  * Follow the instructions at: https://packagecloud.io/varnishcache/varnish52/install#manual-rpm
-
-  * Or (for version 6.0.0): https://packagecloud.io/varnishcache/varnish60/install#manual-rpm
-
-If you have problems or questions concerning the RPMs, contact
+If you have problems or questions concerning the RPMs, post an issue
+to the source repository web site for the VMOD, or contact
 <varnish-support@uplex.de>.
+
+Fedora
+------
+
+The VMOD has also been packaged for Fedora distros (since Fedora 28):
+
+	https://pkgs.org/download/vmod-uuid
+
+To install the VMOD for Fedora, run::
+
+  dnf install vmod-uuid
 
 Building from source
 ~~~~~~~~~~~~~~~~~~~~
