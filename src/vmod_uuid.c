@@ -112,6 +112,12 @@ free_uuids(void *priv)
 		uuid_destroy(uuids[1]);
 }
 
+static const struct vmod_priv_methods uuid_priv_task_methods[1] = {{
+		.magic = VMOD_PRIV_METHODS_MAGIC,
+		.type = "vmod_uuid_priv_task",
+		.fini = free_uuids
+}};
+
 static inline uuid_t *
 get_uuids(VRT_CTX, struct vmod_priv *priv, uuid_t **uuid_ns)
 {
@@ -130,7 +136,7 @@ get_uuids(VRT_CTX, struct vmod_priv *priv, uuid_t **uuid_ns)
 			return NULL;
 		}
 		priv->priv = uuids;
-		priv->free = free_uuids;
+		priv->methods = uuid_priv_task_methods;
 		uuids[0] = NULL;
 		uuids[1] = NULL;
 		UUID_CALL(rc, ctx, uuid_create(&uuid), NULL);
