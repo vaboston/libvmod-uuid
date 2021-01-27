@@ -10,8 +10,8 @@
 # - this script (named pkg)
 # - VMOD uuid tarball (vmod-uuid-$VERSION.tar.gz), built by 'make distcheck'
 # - RPM spec file (vmod-uuid.spec)
-# - yum repo config for varnish63@packagecloud (varnishcache_varnish63.repo)
-#   (see https://packagecloud.io/varnishcache/varnish63/install#manual-rpm)
+# - yum repo config for varnish65@packagecloud (varnishcache_varnish65.repo)
+#   (see https://packagecloud.io/varnishcache/varnish65/install#manual-rpm)
 
 # So this is a sample docker invocation:
 #
@@ -45,9 +45,9 @@ sudo yum install -y -q \
      https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 # set up varnish repo
-sudo cp /srv/varnishcache_varnish63.repo /etc/yum.repos.d/
+sudo cp /srv/varnishcache_varnish65.repo /etc/yum.repos.d/
 
-sudo yum -q makecache -y --disablerepo='*' --enablerepo='varnishcache_varnish63'
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='varnishcache_varnish65'
 
 # build requirements
 sudo yum install -y -q \

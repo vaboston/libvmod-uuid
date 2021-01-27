@@ -9,12 +9,12 @@ Group: System Environment/Daemons
 URL: https://github.com/otto-de/libvmod-uuid
 Source0: %{name}-%{version}.tar.gz
 
-# varnish from varnish63 at packagecloud
-# This is the Requires for VMOD ABI compatibility with VRT >= 10.0.
-Requires: varnishd(vrt)%{?_isa} >= 10
+# varnish from varnish65 at packagecloud
+# This is the Requires for VMOD ABI compatibility with VRT >= 12.0.
+Requires: varnishd(vrt)%{?_isa} >= 12
 Requires: uuid
 
-BuildRequires: varnish-devel >= 6.3.0
+BuildRequires: varnish-devel >= 6.5.1
 BuildRequires: uuid-devel
 BuildRequires: pkgconfig
 BuildRequires: make
@@ -74,7 +74,10 @@ rm -rf %{buildroot}
 /sbin/ldconfig
 
 %changelog
-* Thu Apr 23 2020 Geoff Simmons <geoff[AT]uplex.de> - %{_version}-%{_release}
+* Wed Jan 27 2021 Geoff Simmons <geoff[AT]uplex.de> - %{_version}-%{_release}
+  Compatible with VRT 12 (Varnish 6.5)
+
+* Thu Apr 23 2020 Geoff Simmons <geoff[AT]uplex.de> - 1.8-1
   Compatible with VRT 10 (Varnish 6.3)
 
 * Wed Aug 07 2019 Geoff Simmons <geoff[AT]uplex.de> - 1.7-1
