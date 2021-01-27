@@ -1,4 +1,4 @@
-$Module uuid 3 UUID
+$Module uuid 3 "UUID"
 $ABI vrt
 $Function STRING uuid(PRIV_TASK)
 $Function STRING uuid_v1(PRIV_TASK)
