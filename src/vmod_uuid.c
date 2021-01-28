@@ -101,9 +101,10 @@ _uuid(VRT_CTX, uuid_t *uuid, int utype, ...)
 }
 
 static void
-free_uuids(void *priv)
+free_uuids(VRT_CTX, void *priv)
 {
 	uuid_t **uuids;
+	(void)ctx;
 
 	AN(priv);
 	uuids = priv;
