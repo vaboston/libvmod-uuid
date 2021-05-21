@@ -1,7 +1,7 @@
 # -D MUST pass in _version and _release, and SHOULD pass in dist.
 
 Summary: UUID module for Varnish Cache
-Name: vmod-uuid
+Name: vmod-uuid-maxwait
 Version: %{_version}
 Release: %{_release}%{?dist}
 License: BSD
@@ -9,12 +9,10 @@ Group: System Environment/Daemons
 URL: https://github.com/otto-de/libvmod-uuid
 Source0: %{name}-%{version}.tar.gz
 
-# varnish from varnish66 at packagecloud
-# This is the Requires for VMOD ABI compatibility with VRT >= 13.0.
-Requires: varnishd(vrt)%{?_isa} >= 13
+Requires: varnish-maxwait = 6.6.0
 Requires: uuid
 
-BuildRequires: varnish-devel >= 6.6.0
+BuildRequires: varnish-maxwait-devel = 6.6.0
 BuildRequires: uuid-devel
 BuildRequires: pkgconfig
 BuildRequires: make
@@ -27,7 +25,7 @@ BuildRequires: python-docutils >= 0.6
 #BuildRequires: autoconf-archive
 #BuildRequires: libtool
 
-Provides: vmod-uuid, vmod-uuid-debuginfo
+Provides: vmod-uuid-maxwait, vmod-uuid-maxwait-debuginfo
 
 %description
 UUID Varnish vmod used to generate a uuid, including versions 1, 3, 4
@@ -74,7 +72,10 @@ rm -rf %{buildroot}
 /sbin/ldconfig
 
 %changelog
-* Wed Apr 21 2021 Geoff Simmons <geoff[AT]uplex.de> - %{_version}-%{_release}
+* Fri May 21 2021 Geoff Simmons <geoff@uplex.de> - %{_version}-%{_release}
+- Compatibility with varnish-maxwait (6.6.0)
+
+* Wed Apr 21 2021 Geoff Simmons <geoff[AT]uplex.de> - 1.10-1
   Compatible with VRT 13 (Varnish 6.6)
 
 * Wed Jan 27 2021 Geoff Simmons <geoff[AT]uplex.de> - 1.9-1

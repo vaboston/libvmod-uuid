@@ -38,20 +38,24 @@ rm /home/builder/.rpmmacros
 cd /home/builder
 mkdir -p rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 cp /srv/vmod-uuid.spec rpmbuild/SPECS
-cp /srv/vmod-uuid-${VERSION}.tar.gz rpmbuild/SOURCES
+cp /srv/vmod-uuid-maxwait-${VERSION}.tar.gz rpmbuild/SOURCES
+
+# update the build env
+set +e
+sudo yum check-update -y -q
+set -e
+sudo yum upgrade -y -q
+
+# set uplex repo for varnish-maxwait and VMOD re
+sudo yum-config-manager --add-repo https://pkg.uplex.de/rpm/7/uplex-varnish/x86_64/
 
 # install epel7 repo
 sudo yum install -y -q \
      https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-# set up varnish repo
-sudo cp /srv/varnishcache_varnish66.repo /etc/yum.repos.d/
-
-sudo yum -q makecache -y --disablerepo='*' --enablerepo='varnishcache_varnish66'
-
 # build requirements
-sudo yum install -y -q \
-     varnish-devel uuid-devel pkgconfig make gcc python-docutils
+sudo yum install --nogpgcheck -y -q varnish-maxwait-devel
+sudo yum install -y -q uuid-devel pkgconfig make gcc python-docutils
 
 # build RPMs
 rpmbuild -ba -D "dist .${DIST}" \
