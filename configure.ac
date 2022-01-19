@@ -18,7 +18,7 @@ AC_CHECK_LIB(ossp-uuid, uuid_create)
 LT_PREREQ([2.2.6])
 LT_INIT([dlopen disable-static])
 
-AX_PTHREAD(,[AC_MSG_ERROR([Could not configure pthreads support])])
+AX_PTHREAD(,AC_MSG_ERROR([Could not configure pthreads support]))
 
 LIBS="$PTHREAD_LIBS $LIBS"
 CFLAGS="$CFLAGS $PTHREAD_CFLAGS"
